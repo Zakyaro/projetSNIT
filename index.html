@@ -747,29 +747,36 @@ Site web : www.snitrans.com
 	
 	
 	document.getElementById("sendMail").addEventListener("click", () => {
-  const clientEmail = document.getElementById("clientEmail").value.trim();
-  const nom = document.getElementById("nom").value.trim();
-  const prenom = document.getElementById("prenom").value.trim();
+	  const clientEmail = document.getElementById("clientEmail").value.trim();
+	  const nom = document.getElementById("nom").value.trim();
+	  const prenom = document.getElementById("prenom").value.trim();
 
-  if (!clientEmail) {
-    alert("Veuillez encoder l'email du client avant d'envoyer.");
-    return;
-  }
-  if (!nom || !prenom) {
-    alert("Veuillez encoder le nom et le prénom du client avant d'envoyer.");
-    return;
-  }
+	  if (!clientEmail) {
+		alert("Veuillez encoder l'email du client avant d'envoyer.");
+		return;
+	  }
+	  if (!nom || !prenom) {
+		alert("Veuillez encoder le nom et le prénom du client avant d'envoyer.");
+		return;
+	  }
 
-  const subject = encodeURIComponent("Votre facture - Navie Logistique");
-  const body = encodeURIComponent(
-    `Bonjour ${prenom} ${nom},\n\n` +
-    `Veuillez trouver ci-joint votre facture.\n\n` +
-    `Cordialement,\nNavie Logistique`
-  );
+	  const subject = encodeURIComponent("Votre facture - SAM NÉGOCE INTER TRANS");
+	  const body = encodeURIComponent(
+		`Bonjour ${prenom} ${nom},\n\n` +
+		`Veuillez trouver ci-joint votre facture.\n\n` +
+		`Cordialement,\SAM NÉGOCE INTER TRANS`
+	  );
+	  
+	  // Email expéditeur en copie cachée (cci)
+	  const cci = "bgetexpress@gmail.com,samsongoudjo@gmail.com"; // ← remplace par ton adresse
 
-  // ⚠️ Le PDF ne peut PAS être attaché automatiquement en mailto
-  window.location.href = `mailto:${clientEmail}?bcc=bgetexpress@gmail.com,samsongoudjo@gmail.com&subject=${subject}&body=${body}`;
-});
+	  // ⚠️ Le PDF ne peut PAS être attaché automatiquement en mailto
+	  //window.location.href = `mailto:${clientEmail}?bcc=bgetexpress@gmail.com,samsongoudjo@gmail.com&subject=${subject}&body=${body}`;
+	  const mailtoLink = `mailto:${clientEmail}?cc=&bcc=${cci}&subject=${subject}&body=${body}`;
+	  
+	  // Ouvrir le client de messagerie
+	  window.location.href = mailtoLink;
+	});
 
   }); // DOMContentLoaded
   </script>
