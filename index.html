@@ -105,6 +105,7 @@
 
        <!-- Montant payé -->
   <!-- Payé -->
+<!-- Payé -->
 <div class="col-12 d-flex align-items-center gap-3">
   <div class="form-check">
     <input class="form-check-input" type="checkbox" id="isPaid">
@@ -114,9 +115,13 @@
     <label class="form-label">Montant payé (€)</label>
     <input type="number" step="0.01" min="0" id="paidAmount" class="form-control" style="width:150px;">
   </div>
-  <div class="ms-auto">
-    <button type="button" id="generate" class="btn btn-primary">Générer PDF</button>
-  </div>
+</div>
+
+<!-- Boutons PDF & Email -->
+<div class="col-12 d-flex justify-content-start gap-2 flex-wrap mb-3">
+  <button type="button" id="generate" class="btn btn-primary">Générer PDF</button>
+  <button type="button" id="sendEmail" class="btn btn-success">Envoyer</button>
+  <!--<button type="button" id="sendEmail" class="btn btn-secondary">Envoyer</button>-->
 </div>
 
 <!-- Company info -->
@@ -743,29 +748,36 @@ Site web : www.snitrans.com
 	
 	
 	document.getElementById("sendMail").addEventListener("click", () => {
-  const clientEmail = document.getElementById("clientEmail").value.trim();
-  const nom = document.getElementById("nom").value.trim();
-  const prenom = document.getElementById("prenom").value.trim();
+	  const clientEmail = document.getElementById("clientEmail").value.trim();
+	  const nom = document.getElementById("nom").value.trim();
+	  const prenom = document.getElementById("prenom").value.trim();
 
-  if (!clientEmail) {
-    alert("Veuillez encoder l'email du client avant d'envoyer.");
-    return;
-  }
-  if (!nom || !prenom) {
-    alert("Veuillez encoder le nom et le prénom du client avant d'envoyer.");
-    return;
-  }
+	  if (!clientEmail) {
+		alert("Veuillez encoder l'email du client avant d'envoyer.");
+		return;
+	  }
+	  if (!nom || !prenom) {
+		alert("Veuillez encoder le nom et le prénom du client avant d'envoyer.");
+		return;
+	  }
 
-  const subject = encodeURIComponent("Votre facture - Navie Logistique");
-  const body = encodeURIComponent(
-    `Bonjour ${prenom} ${nom},\n\n` +
-    `Veuillez trouver ci-joint votre facture.\n\n` +
-    `Cordialement,\nNavie Logistique`
-  );
+	  const subject = encodeURIComponent("Votre facture - SAM NÉGOCE INTER TRANS");
+	  const body = encodeURIComponent(
+		`Bonjour ${prenom} ${nom},\n\n` +
+		`Veuillez trouver ci-joint votre facture.\n\n` +
+		`Cordialement,\SAM NÉGOCE INTER TRANS`
+	  );
+	  
+	  // Email expéditeur en copie cachée (cci)
+	  const cci = "bgetexpress@gmail.com,samsongoudjo@gmail.com"; // ← remplace par ton adresse
 
-  // ⚠️ Le PDF ne peut PAS être attaché automatiquement en mailto
-  window.location.href = `mailto:${clientEmail}?bcc=bgetexpress@gmail.com,samsongoudjo@gmail.com&subject=${subject}&body=${body}`;
-});
+	  // ⚠️ Le PDF ne peut PAS être attaché automatiquement en mailto
+	  //window.location.href = `mailto:${clientEmail}?bcc=bgetexpress@gmail.com,samsongoudjo@gmail.com&subject=${subject}&body=${body}`;
+	  const mailtoLink = `mailto:${clientEmail}?cc=&bcc=${cci}&subject=${subject}&body=${body}`;
+	  
+	  // Ouvrir le client de messagerie
+	  window.location.href = mailtoLink;
+	});
 
   }); // DOMContentLoaded
   </script>
