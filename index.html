@@ -655,7 +655,7 @@ Site web : www.snitrans.com
         // Footer
         pdf.setFont('helvetica','normal'); pdf.setFontSize(9); pdf.setTextColor(120);
 		pdf.text(
-		  'Merci pour votre confiance. Pour toute question, contactez-nous : samsongoudjo@gmail.com   Tél : +32 465 61 03 67', 
+		  'Merci pour votre confiance. Pour toute question, contactez-nous : samsongoudjo@gmail.com   Tél : +32 465 61 03 67 | +33 7 58 88 79 80', 
 		  105, // milieu de la page A4 en mm
 		  290, 
 		  { align: 'center' }
@@ -663,22 +663,22 @@ Site web : www.snitrans.com
 		
 		// 2️⃣ Icône téléphone + numéro
 		//const ICON_PHONE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJElEQVR42mL8//8/AzWgJSUlxWFgYGBkYmBg+J8xk8RAtBtAYz4xg7SsmcCAiJYBWDwDE0RyqAjJS0vLBhSJBWAhAKmgUDIC6fDwMDA6L/v37/8h9FfQUFGIigIgw1Ag0G4hEQIiFSA9DNoJgxAyo0cKgAxEQMWBQwAigxUgIAfFpg1gz0ZkgIEY4MGFlQNhGY9EgmShSYlJIXgM6HBjYGBwPCFeSBtAfCCp4sChgYGRjYGNgYBBGo4EY0G0sDGok0J5Ftoh2hgNsGxgYWBjY/uJiYkPgERQYE6Qk6UDhODNygjKBnQuCBXhQAAfNYc0+9/zfQAAAABJRU5ErkJggg==";
-		const ICON_PHONE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABSElEQVR42mL8//8/AzWgJSUlxWFgYGBkYmBgYHBw8M/9+/cvLtiwYQNPmTJl4sDAwNDX19cePnx42Xn27NmpIqpAZGFjY7McLVI0AKiA6olbt27df/78+SmVlZWBgYHRv3//A6ZPn36pSZ06dfLw4cPVQmSoEZQxiMQB1nAwMDAw/Pz8/A8ePHj0SMjIyCgT5hYGBgeHn5zVsQHj16pDb9/f1lAgAwOWxZsdmT7wAAAABJRU5ErkJggg==";
-
-		const iconSize = 4; // taille de l’icône en mm
-		const pageCenter = 105;
+		//const ICON_PHONE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABSElEQVR42mL8//8/AzWgJSUlxWFgYGBkYmBgYHBw8M/9+/cvLtiwYQNPmTJl4sDAwNDX19cePnx42Xn27NmpIqpAZGFjY7McLVI0AKiA6olbt27df/78+SmVlZWBgYHRv3//A6ZPn36pSZ06dfLw4cPVQmSoEZQxiMQB1nAwMDAw/Pz8/A8ePHj0SMjIyCgT5hYGBgeHn5zVsQHj16pDb9/f1lAgAwOWxZsdmT7wAAAABJRU5ErkJggg==";
+		//const ICON_PHONE = "Tél : "
+		//const iconSize = 4; // taille de l’icône en mm
+		//const pageCenter = 105;
 
 		// Position calculée pour que l’icône + texte soient centrés ensemble
-		const phoneText = "+32 465 61 03 67 | +33 7 58 88 79 80";
-		const textWidth = pdf.getTextWidth(phoneText);
-		const totalWidth = iconSize + 2 + textWidth; // icône + espace + texte
-		const startX = pageCenter - (totalWidth / 2);
+		//const phoneText = "+32 465 61 03 67 | +33 7 58 88 79 80";
+		//const textWidth = pdf.getTextWidth(phoneText);
+		//const totalWidth = iconSize + 2 + textWidth; // icône + espace + texte
+		//const startX = pageCenter - (totalWidth / 2);
 
 		// icône
-		pdf.addImage(ICON_PHONE, 'PNG', startX, 290 - iconSize + 2, iconSize, iconSize);
+		//pdf.addImage(ICON_PHONE, 'PNG', startX, 290 - iconSize + 2, iconSize, iconSize);
 
 		// numéro de téléphone juste à côté
-		pdf.text(phoneText, startX + iconSize + 2, 290);
+		//pdf.text(phoneText, startX + iconSize + 2, 290);
 
 		pdf.setTextColor(0);
 
